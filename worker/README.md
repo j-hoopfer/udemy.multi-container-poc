@@ -1,0 +1,1 @@
+Watches Redis. Anytime that we get a new index inserted into Redis the worker will automatically pull the value out and calculate the appropriate fibonacci value for it and then insert that value back into Redis.

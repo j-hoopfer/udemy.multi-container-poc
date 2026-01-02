@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=development node --watch index.js",
+    "start": "NODE_ENV=production node index.js",
+    "test": "node --test index.test.js"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.4.4",
+    "ioredis": "^5.8.2",
+    "pg": "^8.16.3"
+  }
+}
