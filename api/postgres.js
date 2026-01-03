@@ -1,12 +1,24 @@
 import { Pool } from "pg";
 import { pgUser, pgHost, pgDatabase, pgPassword, pgPort } from "./keys.js";
 
+// Use SSL for RDS in production (most RDS instances require SSL). Allow override via PGSSL=disable for local/dev.
+const sslOption = (() => {
+    const envSetting = process.env.PGSSL?.toLowerCase();
+    const isProd = process.env.NODE_ENV === "production";
+
+    if (envSetting === "disable") return false; // explicitly disable
+    if (envSetting === "require") return { rejectUnauthorized: false };
+
+    return isProd ? { rejectUnauthorized: false } : false;
+})();
+
 const pgClient = new Pool({
     user: pgUser,
     host: pgHost,
     database: pgDatabase,
     password: pgPassword,
     port: pgPort,
+    ssl: sslOption,
 });
 
 pgClient.on("error", (err) => {
