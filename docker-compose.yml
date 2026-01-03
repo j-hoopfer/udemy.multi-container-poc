@@ -20,7 +20,6 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-
   api:
     build:
       context: ./api

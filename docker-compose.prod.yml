@@ -1,0 +1,32 @@
+services:
+  nginx:
+    image: ${DOCKER_USERNAME}/multi-container-nginx:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - client
+      - api
+    restart: always
+
+  client:
+    image: ${DOCKER_USERNAME}/multi-container-client:latest
+    restart: always
+
+  api:
+    image: ${DOCKER_USERNAME}/multi-container-api:latest
+    environment:
+      - REDIS_HOST=multi-container-app-dh0bpf.serverless.use1.cache.amazonaws.com
+      - REDIS_PORT=6379
+      - PGHOST=multi-container-app.cluster-c50c0iw6eu3o.us-east-1.rds.amazonaws.com
+      - PGPORT=5432
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    restart: always
+
+  worker:
+    image: ${DOCKER_USERNAME}/multi-container-worker:latest
+    environment:
+      - REDIS_HOST=multi-container-app-dh0bpf.serverless.use1.cache.amazonaws.com
+      - REDIS_PORT=6379
+    restart: always
