@@ -1,0 +1,27 @@
+# Version control
+.git
+.gitignore
+
+# Documentation
+*.md
+README*
+
+# Docker files
+Dockerfile*
+.dockerignore
+docker-compose*
+
+# Editor/IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+tmp
+temp
