@@ -1,3 +1,46 @@
-package-lock.json
+# Dependencies
 node_modules
-yarn.lock
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Version control
+.git
+.gitignore
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor/IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Documentation
+*.md
+README*
+
+# Docker files
+Dockerfile*
+.dockerignore
+docker-compose*
+
+# Testing
+coverage
+.nyc_output
+*.test.js
+__tests__
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+.npm
+.yarn
+tmp
+temp
