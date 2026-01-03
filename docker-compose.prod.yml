@@ -10,10 +10,14 @@ services:
 
   client:
     image: ${DOCKER_USERNAME}/multi-container-client:latest
+    expose:
+      - "5173"
     restart: always
 
   api:
     image: ${DOCKER_USERNAME}/multi-container-api:latest
+    expose:
+      - "8080"
     environment:
       - REDIS_HOST=multi-container-app-dh0bpf.serverless.use1.cache.amazonaws.com
       - REDIS_PORT=6379
