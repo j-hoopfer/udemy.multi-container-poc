@@ -53,7 +53,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Build and push API image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./api
           file: ./api/Dockerfile
@@ -63,7 +63,7 @@ jobs:
           cache-to: type=gha,mode=max
       
       - name: Build and push Client image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./client
           file: ./client/Dockerfile
@@ -73,7 +73,7 @@ jobs:
           cache-to: type=gha,mode=max
       
       - name: Build and push Worker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./worker
           file: ./worker/Dockerfile
@@ -83,7 +83,7 @@ jobs:
           cache-to: type=gha,mode=max
       
       - name: Build and push Nginx image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./front-door
           file: ./front-door/Dockerfile
