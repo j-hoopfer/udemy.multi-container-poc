@@ -1,4 +1,4 @@
-FROM node:24-slim as builder
+FROM node:24-slim AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
