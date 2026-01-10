@@ -7,6 +7,7 @@ const MAX_RETRIES = 5;
 const redisClient = new Redis({
     host: redisHost,
     port: redisPort,
+    tls: true,
     retryStrategy: () => RETRY_DELAY_MS,
 });
 
